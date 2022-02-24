@@ -1,33 +1,32 @@
 let formulario = document.getElementById("formulario");
 
 formulario.addEventListener("submit", () => {
+  let documento = document.getElementById("documento").value;
   let nombre1 = document.getElementById("nombre1").value;
   let nombre2 = document.getElementById("nombre2").value;
+  let apellido1 = document.getElementById("apellido1").value;
+  let apellido2 = document.getElementById("apellido2").value;
   let email = document.getElementById("email1").value;
-  let telefono = document.getElementById("telefono").value;
   let mensaje = document.getElementById("mensaje").value;
   let expresionNombre = /^[a-zA-Z]*$/;
-  let expresion2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/; // Expresion regular para validar el email
-  let expresion3 = /^[0-9]{10}$/; // Expresion regular para validar el telefono
+  let expresionApellido = /^[a-zA-Z]*$/;
+  let expresion2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/; // Expresion regular para validar el email // Expresion regular para validar el documento
 
   if (
+    documento === "" ||
     nombre1 === "" ||
     nombre2 == null ||
+    apellido1 === "" ||
+    apellido2 === "" ||
     email === "" ||
-    telefono === "" ||
     mensaje === ""
-  ) {
-    alert("todos los campos son obligatorios");
+  )if (!expresionNombre.test(nombre1 || nombre2)) {
+    alert("nombres invalidos");
     return false;
-  } else if (!expresionNombre.test(nombre1 || nombre2)) {
-    alert("El nombre no es valido");
-    return false;
+  } else if (!expresionApellido.test(apellido1 || apellido2)) {
+    alert("apellidos invalidos");
   } else if (!expresion2.test(email)) {
     alert("correo invalido");
-    return false;
-  } else if (!expresion3.test(telefono)) {
-    alert("numero de celular no valido");
-    return false;
   } else {
     alert("mensaje enviado con exito");
     function eliminar() {
@@ -39,15 +38,24 @@ formulario.addEventListener("submit", () => {
 });
 
 let eliminarForm = document.getElementById("formulario");
-
 eliminarForm.addEventListener("reset", () => {
+  let documento = document.getElementById("documento").value;
   let primerNom = document.getElementById("nombre1").value;
   let segundoNom = document.getElementById("nombre2").value;
-  let email2 = document.getElementById("email1").value;
-  let telefono2 = document.getElementById("telefono").value;
-  let mensaje2 = document.getElementById("mensaje").value;
+  let apellido1 = document.getElementById("apellido1").value;
+  let apellido2= document.getElementById("apellido2").value;
+  let email = document.getElementById("email1").value;
+  let mensaje = document.getElementById("mensaje").value;
 
-  let informacion = [primerNom,segundoNom, email2, telefono2, mensaje2];
+  let informacion = [
+    documento,
+    primerNom,
+    segundoNom,
+    apellido1,
+    apellido2,
+    email,
+    mensaje,
+  ];
   let filtro = informacion.filter((datos) => {
     return datos.length > 0;
   });
@@ -112,3 +120,5 @@ $(document).ready(function () {
     img += 1;
   }, 4000);
 });
+
+
