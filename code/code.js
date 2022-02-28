@@ -1,41 +1,3 @@
-let formulario = document.getElementById("formulario");
-
-formulario.addEventListener("submit", () => {
-  let documento = document.getElementById("documento").value;
-  let nombre1 = document.getElementById("nombre1").value;
-  let nombre2 = document.getElementById("nombre2").value;
-  let apellido1 = document.getElementById("apellido1").value;
-  let apellido2 = document.getElementById("apellido2").value;
-  let email = document.getElementById("email1").value;
-  let mensaje = document.getElementById("mensaje").value;
-  let expresionNombre = /^[a-zA-Z]*$/;
-  let expresionApellido = /^[a-zA-Z]*$/;
-  let expresion2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/; // Expresion regular para validar el email // Expresion regular para validar el documento
-
-  if (
-    documento === "" ||
-    nombre1 === "" ||
-    nombre2 == null ||
-    apellido1 === "" ||
-    apellido2 === "" ||
-    email === "" ||
-    mensaje === ""
-  )if (!expresionNombre.test(nombre1 || nombre2)) {
-    alert("nombres invalidos");
-    return false;
-  } else if (!expresionApellido.test(apellido1 || apellido2)) {
-    alert("apellidos invalidos");
-  } else if (!expresion2.test(email)) {
-    alert("correo invalido");
-  } else {
-    alert("mensaje enviado con exito");
-    function eliminar() {
-      formulario.reset();
-    }
-    eliminar();
-    return false;
-  }
-});
 
 let eliminarForm = document.getElementById("formulario");
 eliminarForm.addEventListener("reset", () => {
@@ -43,9 +5,10 @@ eliminarForm.addEventListener("reset", () => {
   let primerNom = document.getElementById("nombre1").value;
   let segundoNom = document.getElementById("nombre2").value;
   let apellido1 = document.getElementById("apellido1").value;
-  let apellido2= document.getElementById("apellido2").value;
+  let apellido2 = document.getElementById("apellido2").value;
   let email = document.getElementById("email1").value;
   let mensaje = document.getElementById("mensaje").value;
+
 
   let informacion = [
     documento,
@@ -120,5 +83,3 @@ $(document).ready(function () {
     img += 1;
   }, 4000);
 });
-
-

@@ -71,23 +71,38 @@
                     <form action="formulario.php" method="post" id="formulario">
                       <div class="form-group">
                         <label>Documento de Identidad :</label>
-                        <input type="text" class="form-control"  id ="documento" name="doc_ident" placeholder="Documento de Identidad"
-                          required>
+                        <input type="number" class="form-control"  id ="documento" name="doc_ident" placeholder="Documento de Identidad" required>
                           <br>
                         <label>Primer Nombre :</label>
-                        <input type="text" class="form-control" id="nombre1" name="primerNom" placeholder="primer nombre" required>
+                        <input type="text" class="form-control" id="nombre1" name="primerNom" placeholder="primer nombre"  pattern="[a-zA-Z ]{2,25}" title="solo se permiten letras" required>
                         <br>
+                      
                         <label>Segundo Nombre :</label>
-                        <input type="text" class="form-control" id="nombre2" name="segundoNom" placeholder="segundo nombre">
+                        <input type="text" class="form-control" id="nombre2" name="segundoNom" placeholder="segundo nombre"
+                        pattern="[a-zA-Z ]{2,20}"
+                        title="solo se permiten letras"">
                         <br>
                         <label>Primer Apellido :</label>
-                        <input type="text" class="form-control" id="apellido1" name="primerApe" placeholder="primer apellido" required>
+                        <input type="text" class="form-control" id="apellido1" name="primerApe" placeholder="primer apellido"  pattern="[a-zA-Z ]{2,250}"
+                        title="solo se permiten letras" required>
                         <br>
                         <label>Segundo Apellido :</label>
-                        <input type="text" class="form-control" id="apellido2" name="segundoApe" placeholder="segundo apellido" required>
+                        <input type="text" class="form-control" id="apellido2" name="segundoApe" placeholder="segundo apellido"  pattern="[a-zA-Z ]{2,250}"
+                        title="solo se permiten letras" required>
+                        <br>
+                        <label>Telefono :</label>
+                        <input type="number" class="form-control" id="telefono" name="telefono" placeholder="telefono" pattern="[0-9]{10}" title="solo se permiten numeros" required>
                         <br>
                         <label>Email :</label>
-                        <input type="email" class="form-control" id="email1" name="email" placeholder="digite su email" required>
+                        <input type="email" class="form-control" id="email1" name="email" placeholder="digite su email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                        <br>
+                        <label>Tipo de Solicitud :</label>
+                        <select name="tipo_consulta" id="input" class="form-control" required="required">
+                          <option selected="selected">Seleccione una opcion :</option>
+                          <option value="1">Solicitud</option>
+                          <option value="2">Reclamo</option>
+                          <option value="3">Consulta</option>
+                        </select>
                         <br>
                         <label>Mensaje :</label>
                         <textarea class="form-control" rows="3" name="mensaje" placeholder="digite su mensaje" style="resize: none"
