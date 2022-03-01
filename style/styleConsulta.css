@@ -1,0 +1,17 @@
+body{
+  width: 50%;
+  margin: auto;
+}
+
+#botonBuscar{
+  width: 20%;
+  height: 30px;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 40%;
+  cursor: pointer;
+}
