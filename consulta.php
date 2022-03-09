@@ -9,7 +9,7 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style/styleConsulta.css">
+  <link href="style/styleConsulta.css" rel="stylesheet">
 
 </head>
 
@@ -22,9 +22,14 @@
     <div class="form-group">
       <input type="text" class="form-control" name="buscador" placeholder="ingrese numero de cedula" required pattern="[0-9]{8,10}">
     </div>
-    <button type="submit" class="btn btn-primary" name="buscar" id="botonBuscar">Buscar</button>
-    <button type="submit" class="btn btn-primary" name="eliminar" id="eliminar">Eliminar</button>
-  
+    <div class="botones">
+      <button type="submit" class="btn btn-success" id="inicio"><a href="index.php">Inicio</a></button>
+      <button type="submit" class="btn btn-primary" name="buscar" id="botonBuscar">Buscar</button>
+      <button type="submit" class="btn btn-danger" name="eliminar" id="eliminar">Eliminar</button>
+    </div>
+    <hr>
+
+
   </form>
   <br><br>
   <?php
@@ -32,7 +37,7 @@
   $conn = new  mysqli("localhost", "root", "", "veterinaria") or
     die("Problemas con la conexión");
 
-    // codigo para eliminar los datos de una tabla
+  // codigo para eliminar los datos de una tabla
 
   if (isset($_REQUEST['eliminar'])) { // si se presiona el boton eliminar
     $cedula = $_REQUEST['buscador']; // guardamos el valor de la cedula en la variable cedula
@@ -53,8 +58,9 @@
     $consulta = $conn->query("SELECT * FROM info WHERE doc_ident LIKE '$buscador'");
 
     while ($registro = $consulta->fetch_array()) {
-      echo "informacion de usuario";
-      echo "<table border = '1'>";
+      echo "<h2 class='text-center'>informacion de usuario</h2>";
+      echo "<br>";
+      echo "<table border = '1' id='tablaConsulta'>";
       echo "<tbody>";
       echo "<tr>";
       echo "<td>";
@@ -140,15 +146,17 @@
       echo "</tbody>";
       echo "</table>";
       echo "<br>";
-      echo "<button type='submit' class='btn' id='nuevaconsult'> ";
-      echo "<a href='consulta.php'>Realizar nueva consulta</a>";
-      echo "<script type='text/javascript'>";
-      echo "alert('Consulta realizada con exito');";
-      echo "</script>";
-      echo "</button>";
-      echo "  <button type='submit' class='btn' name='modificar' id='modificar'><a href='update.php'>
-      Modificar
-      </a></button>";
+     echo "<div class='botonesTabla'>";
+     echo "<button type='submit' class='btn' id='nuevaconsulta'> ";
+     echo "<a href='consulta.php'>Realizar nueva consulta</a>";
+     echo "<script type='text/javascript'>";
+     echo "alert('Consulta realizada con exito');";
+     echo "</script>";
+     echo "</button>";
+     echo "  <button type='submit' class='btn' name='modificar' id='modificar'><a href='update.php'>
+     Modificar
+     </a></button>";
+     echo "</div>";
 
       mysqli_close($conexion);
     };
@@ -158,7 +166,7 @@
     echo "alert('No se encontro el usuario');";
     echo "</script>";
   };
-  ?>  
+  ?>
 
 </body>
 

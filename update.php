@@ -22,6 +22,7 @@
       <input type="text" class="form-control" name="buscador" placeholder="ingrese numero de cedula" required pattern="[0-9]{8,10}">
     </div>
     <button type="submit" class="btn btn-primary" name="buscar" id="botonBuscar">Buscar</button>
+    <button type="submit" class="btn btn-success"><a href="consulta.php">Regresar</a></button>
   </form>
 
   <br><br>

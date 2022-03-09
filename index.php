@@ -109,7 +109,7 @@
                         <textarea class="form-control" rows="3" name="mensaje" placeholder="digite su mensaje" style="resize: none"
                           id="mensaje" required></textarea>
                       </div>
-                      <input type="submit" class="btn btn-primary" value="enviar" id="enviar" />
+                      <input type="submit" class="btn btn-primary"  value="enviar" id="enviar" />
                       <input type="reset" class="btn btn-danger" value="Eliminar formulario" id="eliminar" />
                     </form>
                   </div>
